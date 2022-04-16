@@ -1,0 +1,7 @@
+= nvimfiles for ~/.config/nvim
+
+== Usage
+
+ cd ~/.config
+ mv nvim nvim.old
+ git clone --recursive <repository> nvim
