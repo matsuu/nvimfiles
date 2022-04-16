@@ -1,0 +1,33 @@
+[submodule "pack/colorscheme/start/vim-colors-github"]
+	path = pack/colorscheme/start/vim-colors-github
+	url = https://github.com/cormacrelf/vim-colors-github.git
+[submodule "pack/lsp/start/nvim-lspconfig"]
+	path = pack/autocomplete/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/lsp/start/nvim-lsp-installer"]
+	path = pack/autocomplete/start/nvim-lsp-installer
+	url = https://github.com/williamboman/nvim-lsp-installer.git
+[submodule "pack/lsp/start/nvim-cmp"]
+	path = pack/autocomplete/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "pack/lsp/start/cmp-nvim-lsp"]
+	path = pack/autocomplete/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/lsp/start/cmp-vsnip"]
+	path = pack/autocomplete/start/cmp-vsnip
+	url = https://github.com/hrsh7th/cmp-vsnip.git
+[submodule "pack/lsp/start/cmp-buffer"]
+	path = pack/autocomplete/start/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer.git
+[submodule "pack/lsp/start/vim-vsnip"]
+	path = pack/autocomplete/start/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip.git
+[submodule "pack/lsp/start/friendly-snippets"]
+	path = pack/autocomplete/start/friendly-snippets
+	url = https://github.com/rafamadriz/friendly-snippets.git
+[submodule "pack/golang/start/vim-goimports"]
+	path = pack/golang/start/vim-goimports
+	url = https://github.com/mattn/vim-goimports.git
+[submodule "pack/autocomplete/start/cmp-nvim-lsp-signature-help"]
+	path = pack/autocomplete/start/cmp-nvim-lsp-signature-help
+	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
