@@ -1,5 +1,4 @@
 vim.opt.list = true
--- vim.opt.completeopt = "menu,menuone,noselect,preview"
 vim.g.goimports_simplify = 1
 vim.cmd("colorscheme github")
 
