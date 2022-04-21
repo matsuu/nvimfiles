@@ -4,10 +4,8 @@ vim.opt.termguicolors = true
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
 -- vim.opt.background = 'light'
---
-require('plugins')
 
--- vim.cmd('colorscheme github')
+require('plugins')
 require('xcode-colors').setup {
   background = "dynamic",
   -- extensions = { "treesitter" },
