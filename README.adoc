@@ -4,4 +4,5 @@
 
  cd ~/.config
  mv nvim nvim.old
- git clone --recursive <repository> nvim
+ git clone --depth=1 <repository> nvim
+ nvim -c 'JetpackSync'
