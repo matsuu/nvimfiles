@@ -1,24 +1,17 @@
-require('jetpack').startup(function(use)
-  use'cormacrelf/vim-colors-github'
-  use'hrsh7th/nvim-cmp'
-  use'hrsh7th/cmp-nvim-lsp'
-  use'hrsh7th/cmp-buffer'
-  use'hrsh7th/cmp-path'
-  use'hrsh7th/cmp-cmdline'
-  use'hrsh7th/cmp-nvim-lsp-signature-help'
-  use'mattn/vim-goimports'
-  use'neovim/nvim-lspconfig'
-  use'williamboman/nvim-lsp-installer'
-end)
-
 vim.opt.list = true
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.termguicolors = true
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
 -- vim.opt.background = 'light'
+--
+require('plugins')
 
-vim.cmd('colorscheme github')
+-- vim.cmd('colorscheme github')
+require('xcode-colors').setup {
+  background = "dynamic",
+  -- extensions = { "treesitter" },
+}
 
 vim.g.goimports_simplify = 1
 
