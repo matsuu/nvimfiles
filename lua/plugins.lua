@@ -6,17 +6,25 @@ end
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- use 'cormacrelf/vim-colors-github'
-  use 'jgvw/xcode-colors.nvim'
+
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'mattn/vim-goimports'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+
+  use 'nvim-lualine/lualine.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+
+  use 'fgsch/vim-varnish'
+  use 'mattn/vim-goimports'
+
+  use 'cormacrelf/vim-colors-github'
 
   if packer_bootstrap then
     require('packer').sync()
