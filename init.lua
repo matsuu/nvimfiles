@@ -8,7 +8,9 @@ require('lualine').setup {
     section_separators = '',
   },
 }
-vim.cmd("colorscheme github")
+vim.cmd('colorscheme base16-bright')
+-- vim.opt.background = 'light'
+-- vim.cmd('colorscheme base16-google-light')
 
 -- base
 vim.opt.list = true
@@ -16,6 +18,5 @@ vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.termguicolors = true
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
--- vim.opt.background = 'light'
 
 vim.g.goimports_simplify = 1
