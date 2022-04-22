@@ -19,10 +19,17 @@ return require('packer').startup(function(use)
   use 'williamboman/nvim-lsp-installer'
 
   use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
 
-  use 'fgsch/vim-varnish'
-  use 'mattn/vim-goimports'
+  use {
+    'fgsch/vim-varnish',
+    opt = true,
+    ft = {'vcl'},
+  }
+  use {
+    'mattn/vim-goimports',
+    opt = true,
+    ft = {'go'},
+  }
 
   use 'cormacrelf/vim-colors-github'
 
