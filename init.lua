@@ -1,10 +1,4 @@
 require('plugins')
-vim.cmd([[
-  augroup custom_papercolorslim_transparent_background
-    autocmd!
-    autocmd ColorScheme PaperColorSlim highlight Normal guibg=none
-  augroup end
-]])
 
 -- base
 vim.opt.list = true

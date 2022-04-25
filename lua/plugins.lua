@@ -1,4 +1,10 @@
-local packer = require('packer').startup(function(use)
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- autocomplete
@@ -88,10 +94,12 @@ local packer = require('packer').startup(function(use)
 
 	-- colorscheme
 	use {
-		'pappasam/papercolor-theme-slim',
+		'yorik1984/newpaper.nvim',
 		config = function()
-			vim.opt.termguicolors = true
-			vim.cmd[[colorscheme PaperColorSlim]]
+			require('newpaper').setup({
+				style = 'dark',
+				disable_background = true,
+			})
 		end,
 	}
 
@@ -123,10 +131,3 @@ local packer = require('packer').startup(function(use)
 		end,
 	}
 end)
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-return packer
