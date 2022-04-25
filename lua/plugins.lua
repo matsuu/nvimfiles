@@ -1,4 +1,4 @@
-return require('packer').startup(function(use)
+local packer = require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- autocomplete
@@ -87,15 +87,22 @@ return require('packer').startup(function(use)
 	}
 
 	-- colorscheme
-	use { 'RRethy/nvim-base16', config = 'vim.cmd[[colorscheme base16-bright]]' }
+	use {
+		'pappasam/papercolor-theme-slim',
+		config = function()
+			vim.opt.termguicolors = true
+			vim.cmd[[colorscheme PaperColorSlim]]
+		end,
+	}
 
 	-- statusline
 	use {
 		'nvim-lualine/lualine.nvim',
 		config = function()
+			vim.opt.showmode = false
 			require('lualine').setup {
 				options = {
-					theme = 'material',
+					theme = 'PaperColor',
 					icons_enabled = false,
 					component_separators = '',
 					section_separators = '',
@@ -116,3 +123,10 @@ return require('packer').startup(function(use)
 		end,
 	}
 end)
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+return packer
