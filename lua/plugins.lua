@@ -130,6 +130,9 @@ return require('packer').startup(function(use)
 	-- filetypes
 	use { 'fgsch/vim-varnish', opt = true, ft = { 'vcl' } }
 
+	-- tabstop
+	use { 'zsugabubus/crazy8.nvim' }
+
 	-- git
 	use {
 		'sindrets/diffview.nvim',
