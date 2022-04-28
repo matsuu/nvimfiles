@@ -118,7 +118,6 @@ return require('packer').startup(function(use)
 			vim.opt.showmode = false
 			require('lualine').setup {
 				options = {
-					theme = 'PaperColor',
 					icons_enabled = false,
 					component_separators = '',
 					section_separators = '',
