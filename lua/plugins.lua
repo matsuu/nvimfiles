@@ -60,6 +60,11 @@ return require('packer').startup(function(use)
 					{ name = 'cmdline' }
 				})
 			})
+			-- vim.diagnostic.config({
+			-- 	virtual_text = false,
+			-- 	signs = false,
+			-- 	underline = false,
+			-- })
 		end,
 	}
 	use {
@@ -89,6 +94,29 @@ return require('packer').startup(function(use)
 			lsp_installer.on_server_ready(function(server)
 				server:setup(opts)
 			end)
+		end,
+	}
+
+	use {
+		'folke/trouble.nvim',
+		config = function()
+			require("trouble").setup {
+				height = 5,
+				icons = false,
+				fold_open = "v",
+				fold_closed = ">",
+				padding = false,
+				auto_open = true,
+				auto_close = true,
+				signs = {
+					-- icons / text used for a diagnostic
+					error = "Error",
+					warning = "Warn",
+					hint = "Hint",
+					information = "Info",
+					other = "Other",
+				},
+			}
 		end,
 	}
 
