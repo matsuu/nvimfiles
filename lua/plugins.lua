@@ -122,20 +122,11 @@ return require('packer').startup(function(use)
 
 	-- colorscheme
 	use {
-		'NLKNguyen/papercolor-theme',
-		setup = function()
-			vim.g.PaperColor_Theme_Options = {
-				theme = {
-					default = {
-						-- transparent_background = 1,
-						allow_bold = 1,
-						allow_italic = 1,
-					},
-				}
-			}
-		end,
+		'Mofiqul/vscode.nvim',
 		config = function()
-			vim.cmd([[colorscheme PaperColor]])
+			vim.g.vscode_style = "dark"
+			vim.g.vscode_italic_comment = 1
+			vim.cmd([[colorscheme vscode]])
 		end,
 	}
 
