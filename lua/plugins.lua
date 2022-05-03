@@ -60,11 +60,14 @@ return require('packer').startup(function(use)
 					{ name = 'cmdline' }
 				})
 			})
-			-- vim.diagnostic.config({
-			-- 	virtual_text = false,
-			-- 	signs = false,
-			-- 	underline = false,
-			-- })
+			vim.diagnostic.config({
+				virtual_text = false,
+				-- signs = false,
+				-- underline = false,
+				-- update_in_insert = true,
+			})
+			vim.opt.updatetime = 250
+			vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 		end,
 	}
 	use {
