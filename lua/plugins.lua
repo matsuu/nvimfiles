@@ -104,12 +104,12 @@ return require('packer').startup(function(use)
 		'folke/trouble.nvim',
 		config = function()
 			require("trouble").setup {
-				height = 5,
+				height = 4,
 				icons = false,
 				fold_open = "v",
 				fold_closed = ">",
 				padding = false,
-				auto_open = true,
+				auto_open = false,
 				auto_close = true,
 				signs = {
 					-- icons / text used for a diagnostic
