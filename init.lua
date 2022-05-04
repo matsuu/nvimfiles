@@ -9,3 +9,6 @@ if vim.env.TERM_PROGRAM ~= 'Apple_Terminal' then
 	vim.opt.pumblend = 10
 	vim.opt.winblend = 10
 end
+
+-- For PaperColor colorscheme
+vim.opt.background = "dark"
