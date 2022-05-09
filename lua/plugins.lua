@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
 				fold_open = "v",
 				fold_closed = ">",
 				padding = false,
-				auto_open = false,
+				auto_open = true,
 				auto_close = true,
 				signs = {
 					-- icons / text used for a diagnostic
