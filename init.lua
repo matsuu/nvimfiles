@@ -5,7 +5,6 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.list = true
-vim.opt.mouse = 'a'
 vim.opt.scrolloff = 4
 vim.opt.swapfile = false
 
