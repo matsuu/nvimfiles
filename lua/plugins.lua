@@ -173,7 +173,24 @@ return require('packer').startup(function(use)
 		'sindrets/diffview.nvim',
 		requires = 'nvim-lua/plenary.nvim',
 		config = function()
-			require('diffview').setup()
+			require('diffview').setup({
+				use_icons = false,
+				icons = {
+					folder_closed = '>',
+					folder_open = 'v',
+				},
+				signs = {
+					fold_closed = '>',
+					fold_open = 'v',
+				},
+				file_panel = {
+					position = 'top',
+					height = 4,
+				},
+				file_history_panel = {
+					height = 4,
+				}
+			})
 		end,
 	}
 end)
