@@ -75,6 +75,7 @@ return require('packer').startup(function(use)
 	use {
 		'williamboman/nvim-lsp-installer',
 		requires = {
+			'j-hui/fidget.nvim',
 			'hrsh7th/cmp-nvim-lsp',
 			'lukas-reineke/lsp-format.nvim',
 		},
@@ -105,6 +106,8 @@ return require('packer').startup(function(use)
 			lsp_installer.on_server_ready(function(server)
 				server:setup(opts)
 			end)
+
+			require('fidget').setup {}
 		end,
 	}
 
