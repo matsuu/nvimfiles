@@ -108,6 +108,9 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+	-- term
+	use 'akinsho/nvim-toggleterm.lua'
+
 	use {
 		'folke/trouble.nvim',
 		config = function()
