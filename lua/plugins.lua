@@ -190,11 +190,15 @@ return require('packer').startup(function(use)
 					fold_open = 'v',
 				},
 				file_panel = {
-					position = 'top',
-					height = 4,
+					win_config = {
+						position = 'top',
+						height = 4,
+					},
 				},
 				file_history_panel = {
-					height = 4,
+					win_config = {
+						height = 4,
+					},
 				}
 			})
 		end,
