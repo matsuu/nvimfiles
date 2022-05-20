@@ -174,6 +174,9 @@ return require('packer').startup(function(use)
 	-- filetypes
 	use { 'fgsch/vim-varnish', opt = true, ft = { 'vcl' } }
 
+	-- undo
+	use 'mbbill/undotree'
+
 	-- git
 	use {
 		'sindrets/diffview.nvim',
