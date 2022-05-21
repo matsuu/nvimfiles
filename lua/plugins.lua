@@ -137,6 +137,14 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+	-- terminal
+	use {
+		'akinsho/toggleterm.nvim',
+		config = function()
+			require('toggleterm').setup()
+		end,
+	}
+
 	-- colorscheme
 	use {
 		'NLKNguyen/papercolor-theme',
