@@ -15,7 +15,6 @@ return require('packer').startup(function(use)
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 			'hrsh7th/cmp-nvim-lsp-signature-help',
-			'neovim/nvim-lspconfig',
 		},
 		config = function()
 			local cmp = require('cmp')
@@ -75,19 +74,12 @@ return require('packer').startup(function(use)
 	use {
 		'williamboman/nvim-lsp-installer',
 		requires = {
-			'j-hui/fidget.nvim',
-			'hrsh7th/cmp-nvim-lsp',
 			'lukas-reineke/lsp-format.nvim',
+			'neovim/nvim-lspconfig',
 		},
 		config = function()
-			local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-			require('lsp-format').setup {}
-			local on_attach = require('lsp-format').on_attach
-
-			local opts = {
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = {
+			local settings = {
+				sumneko_lua = {
 					Lua = {
 						diagnostics = {
 							globals = { 'vim' },
@@ -96,17 +88,38 @@ return require('packer').startup(function(use)
 							callSnippet = 'Replace',
 						},
 					},
+				},
+				gopls = {
 					gopls = {
 						usePlaceholders = true,
 					},
-				}
+				},
 			}
 
-			local lsp_installer = require('nvim-lsp-installer')
-			lsp_installer.on_server_ready(function(server)
-				server:setup(opts)
-			end)
+			local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+			local lsp_format = require('lsp-format')
+			lsp_format.setup {}
+			local on_attach = lsp_format.on_attach
+
+			local lspconfig = require('lspconfig')
+
+			local lsp_installer = require('nvim-lsp-installer')
+			lsp_installer.setup {}
+			for _, server in ipairs(lsp_installer.get_installed_servers()) do
+				lspconfig[server.name].setup {
+					capabilities = capabilities,
+					on_attach = on_attach,
+					settings = settings[server.name],
+				}
+			end
+		end,
+	}
+
+	--
+	use {
+		'j-hui/fidget.nvim',
+		config = function()
 			require('fidget').setup {}
 		end,
 	}
