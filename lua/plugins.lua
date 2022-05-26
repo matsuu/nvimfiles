@@ -76,6 +76,7 @@ return require('packer').startup(function(use)
 		requires = {
 			'lukas-reineke/lsp-format.nvim',
 			'neovim/nvim-lspconfig',
+			'stevearc/aerial.nvim',
 		},
 		config = function()
 			local settings = {
@@ -100,7 +101,8 @@ return require('packer').startup(function(use)
 
 			local lsp_format = require('lsp-format')
 			lsp_format.setup {}
-			local on_attach = lsp_format.on_attach
+			local aerial = require('aerial')
+			aerial.setup()
 
 			local lspconfig = require('lspconfig')
 
@@ -109,14 +111,17 @@ return require('packer').startup(function(use)
 			for _, server in ipairs(lsp_installer.get_installed_servers()) do
 				lspconfig[server.name].setup {
 					capabilities = capabilities,
-					on_attach = on_attach,
+					on_attach = function(client, bufnr)
+						lsp_format.on_attach(client, bufnr)
+						aerial.on_attach(client, bufnr)
+					end,
 					settings = settings[server.name],
 				}
 			end
 		end,
 	}
 
-	--
+	-- lsp progress
 	use {
 		'j-hui/fidget.nvim',
 		config = function()
