@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
 		'hrsh7th/nvim-cmp',
 		requires = {
 			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-nvim-lua',
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 			'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -63,6 +64,7 @@ return require('packer').startup(function(use)
 				}),
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
+					{ name = 'nvim_lua' },
 					{ name = 'luasnip' },
 					{ name = 'nvim_lsp_signature_help' },
 				})
