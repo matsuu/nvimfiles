@@ -2,12 +2,11 @@ return require('packer').startup(function(use)
 	use {
 		'wbthomason/packer.nvim',
 		config = function()
-			vim.cmd([[
-				augroup packer_user_config
-					autocmd!
-					autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-				augroup end
-			]])
+			vim.api.nvim_create_autocmd('BufWritePost', {
+				group = vim.api.nvim_create_augroup('PACKER', { clear = true }),
+				pattern = 'plugins.lua',
+				command = 'source <afile> | PackerCompile',
+			})
 		end,
 	}
 
@@ -79,6 +78,7 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'williamboman/nvim-lsp-installer',
+		after = 'nvim-cmp',
 		requires = {
 			'lukas-reineke/lsp-format.nvim',
 			'neovim/nvim-lspconfig',
