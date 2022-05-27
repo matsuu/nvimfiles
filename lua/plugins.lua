@@ -1,11 +1,15 @@
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
+	use {
+		'wbthomason/packer.nvim',
+		config = function()
+			vim.cmd([[
+				augroup packer_user_config
+					autocmd!
+					autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+				augroup end
+			]])
+		end,
+	}
 
 	-- autocomplete
 	use {
