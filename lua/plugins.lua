@@ -135,9 +135,7 @@ return require('packer').startup(function(use)
 		end,
 	}
 
-	-- term
-	use 'akinsho/nvim-toggleterm.lua'
-
+	-- trouble
 	use {
 		'folke/trouble.nvim',
 		config = function()
@@ -205,9 +203,6 @@ return require('packer').startup(function(use)
 
 	-- filetypes
 	use { 'fgsch/vim-varnish', opt = true, ft = { 'vcl' } }
-
-	-- undo
-	use 'mbbill/undotree'
 
 	-- git
 	use {
