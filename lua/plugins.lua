@@ -186,6 +186,28 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+	-- indent
+	use {
+		'lukas-reineke/indent-blankline.nvim',
+		after = 'papercolor-theme',
+		config = function()
+			vim.highlight.create('IndentGuidesOdd', { guibg = '#332b36' })
+			vim.highlight.create('IndentGuidesEven', { guibg = '#2a3834' })
+			require('indent_blankline').setup {
+				char = "",
+				space_char_blankline = "",
+				char_highlight_list = {
+					"IndentGuidesOdd",
+					"IndentGuidesEven",
+				},
+				space_char_highlight_list = {
+					"IndentGuidesOdd",
+					"IndentGuidesEven",
+				},
+			}
+		end,
+	}
+
 	-- statusline
 	use {
 		'nvim-lualine/lualine.nvim',
