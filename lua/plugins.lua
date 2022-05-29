@@ -1,14 +1,11 @@
+vim.api.nvim_create_autocmd('BufWritePost', {
+	group = vim.api.nvim_create_augroup('PACKER', { clear = true }),
+	pattern = 'plugins.lua',
+	command = 'source <afile> | PackerCompile',
+})
+
 return require('packer').startup(function(use)
-	use {
-		'wbthomason/packer.nvim',
-		config = function()
-			vim.api.nvim_create_autocmd('BufWritePost', {
-				group = vim.api.nvim_create_augroup('PACKER', { clear = true }),
-				pattern = 'plugins.lua',
-				command = 'source <afile> | PackerCompile',
-			})
-		end,
-	}
+	use 'wbthomason/packer.nvim'
 
 	-- autocomplete
 	use {
