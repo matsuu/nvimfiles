@@ -16,4 +16,4 @@ if vim.env.TERM_PROGRAM ~= 'Apple_Terminal' then
 end
 
 -- For PaperColor colorscheme
-vim.opt.background = "dark"
+vim.opt.background = "light"
