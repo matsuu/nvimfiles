@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
 		},
 		config = function()
 			local cmp = require('cmp')
+			if cmp == nil then
+				return
+			end
 			local luasnip = require('luasnip')
 			cmp.setup({
 				snippet = {
@@ -74,9 +77,10 @@ return require('packer').startup(function(use)
 		end,
 	}
 	use {
-		'williamboman/nvim-lsp-installer',
+		'williamboman/mason-lspconfig.nvim',
 		after = 'nvim-cmp',
 		requires = {
+			'williamboman/mason.nvim',
 			'lukas-reineke/lsp-format.nvim',
 			'neovim/nvim-lspconfig',
 			'stevearc/aerial.nvim',
@@ -85,8 +89,17 @@ return require('packer').startup(function(use)
 			local settings = {
 				sumneko_lua = {
 					Lua = {
+						runtime = {
+							version = 'LuaJIT',
+						},
 						diagnostics = {
 							globals = { 'vim' },
+						},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
+						telemetry = {
+							enable = false,
 						},
 						completion = {
 							callSnippet = 'Replace',
@@ -107,18 +120,22 @@ return require('packer').startup(function(use)
 			local aerial = require('aerial')
 			aerial.setup()
 
-			local lspconfig = require('lspconfig')
+			local on_attach = function(client, bufnr)
+				lsp_format.on_attach(client)
+				aerial.on_attach(client, bufnr)
+			end
 
-			local lsp_installer = require('nvim-lsp-installer')
-			lsp_installer.setup {}
-			for _, server in ipairs(lsp_installer.get_installed_servers()) do
-				lspconfig[server.name].setup {
+			require('mason').setup {}
+			local mason_lspconfig = require('mason-lspconfig')
+			mason_lspconfig.setup {}
+
+			for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
+				-- local target = server.name
+				local target = server
+				require('lspconfig')[target].setup {
 					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						lsp_format.on_attach(client, bufnr)
-						aerial.on_attach(client, bufnr)
-					end,
-					settings = settings[server.name],
+					on_attach = on_attach,
+					settings = settings[target],
 				}
 			end
 		end,
