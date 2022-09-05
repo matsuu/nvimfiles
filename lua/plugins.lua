@@ -155,20 +155,7 @@ return require('packer').startup(function(use)
 		config = function()
 			require("trouble").setup {
 				height = 4,
-				icons = false,
-				fold_open = "v",
-				fold_closed = ">",
 				padding = false,
-				auto_open = false,
-				auto_close = false,
-				signs = {
-					-- icons / text used for a diagnostic
-					error = "Error",
-					warning = "Warn",
-					hint = "Hint",
-					information = "Info",
-					other = "Other",
-				},
 			}
 		end,
 	}
@@ -200,18 +187,15 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+	-- font
+	use 'kyazdani42/nvim-web-devicons'
+
 	-- statusline
 	use {
 		'nvim-lualine/lualine.nvim',
 		config = function()
 			vim.opt.showmode = false
-			require('lualine').setup {
-				options = {
-					icons_enabled = false,
-					component_separators = '',
-					section_separators = '',
-				},
-			}
+			require('lualine').setup {}
 		end,
 	}
 
@@ -223,16 +207,7 @@ return require('packer').startup(function(use)
 		'sindrets/diffview.nvim',
 		requires = 'nvim-lua/plenary.nvim',
 		config = function()
-			require('diffview').setup({
-				use_icons = false,
-				icons = {
-					folder_closed = '>',
-					folder_open = 'v',
-				},
-				signs = {
-					fold_closed = '>',
-					fold_open = 'v',
-				},
+			require('diffview').setup {
 				file_panel = {
 					win_config = {
 						position = 'top',
@@ -244,7 +219,7 @@ return require('packer').startup(function(use)
 						height = 4,
 					},
 				}
-			})
+			}
 		end,
 	}
 end)
