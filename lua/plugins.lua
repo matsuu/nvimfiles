@@ -149,6 +149,13 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		config = function()
+			require('nvim-treesitter').setup()
+		end,
+	}
+
 	-- trouble
 	use {
 		'folke/trouble.nvim',
