@@ -83,7 +83,6 @@ return require('packer').startup(function(use)
 			'williamboman/mason.nvim',
 			'lukas-reineke/lsp-format.nvim',
 			'neovim/nvim-lspconfig',
-			'stevearc/aerial.nvim',
 		},
 		config = function()
 			local settings = {
@@ -116,12 +115,9 @@ return require('packer').startup(function(use)
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			local lsp_format = require('lsp-format')
 			lsp_format.setup {}
-			local aerial = require('aerial')
-			aerial.setup()
 
-			local on_attach = function(client, bufnr)
+			local on_attach = function(client)
 				lsp_format.on_attach(client)
-				aerial.on_attach(client, bufnr)
 			end
 
 			require('mason').setup {}
