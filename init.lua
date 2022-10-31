@@ -1,8 +1,8 @@
 require('plugins')
 
 -- for FVim and Neovide
-vim.opt.guifont = 'UDEV Gothic:h12'
-vim.opt.guifontwide = 'UDEV Gothic:h12'
+vim.opt.guifont = 'HackGen Console NFJ:h12'
+vim.opt.guifontwide = 'HackGen Console NFJ:h12'
 
 -- base
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
