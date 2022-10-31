@@ -170,25 +170,6 @@ return require('packer').startup(function(use)
 		end,
 	}
 
-	-- colorscheme
-	use {
-		'NLKNguyen/papercolor-theme',
-		setup = function()
-			vim.g.PaperColor_Theme_Options = {
-				theme = {
-					default = {
-						-- transparent_background = 1,
-						allow_bold = 1,
-						allow_italic = 1,
-					},
-				}
-			}
-		end,
-		config = function()
-			vim.cmd([[colorscheme PaperColor]])
-		end,
-	}
-
 	-- font
 	use 'kyazdani42/nvim-web-devicons'
 
@@ -197,7 +178,11 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		config = function()
 			vim.opt.showmode = false
-			require('lualine').setup {}
+			require('lualine').setup {
+				options = {
+					theme = 'PaperColor',
+				},
+			}
 		end,
 	}
 
