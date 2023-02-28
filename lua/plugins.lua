@@ -187,7 +187,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- filetypes
-	use { 'fgsch/vim-varnish', opt = true, ft = { 'vcl' } }
+	use { 'varnishcache-friends/vim-varnish', opt = true, ft = { 'vcl' } }
 
 	-- git
 	use {
