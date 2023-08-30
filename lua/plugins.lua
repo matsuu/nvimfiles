@@ -175,6 +175,13 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+	use {
+		'RRethy/nvim-base16',
+		config = function()
+			vim.cmd 'colorscheme base16-tomorrow'
+		end,
+	}
+
 	-- font
 	use 'kyazdani42/nvim-web-devicons'
 
@@ -185,7 +192,7 @@ return require('packer').startup(function(use)
 			vim.opt.showmode = false
 			require('lualine').setup {
 				options = {
-					theme = 'PaperColor',
+					theme = 'base16',
 				},
 			}
 		end,
