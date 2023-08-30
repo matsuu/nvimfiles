@@ -8,3 +8,4 @@ vim.opt.guifontwide = 'HackGen Console NFJ:h12'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.list = true
 vim.opt.scrolloff = 4
+vim.opt.mouse = ''
