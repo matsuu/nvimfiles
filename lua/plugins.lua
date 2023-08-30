@@ -148,7 +148,11 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		config = function()
-			require('nvim-treesitter').setup()
+			require('nvim-treesitter.configs').setup {
+				highlight = {
+					enable = true,
+				},
+			}
 		end,
 	}
 
